@@ -1,0 +1,624 @@
+line:
+23              int T; for (scanf("%d", &T); T--;) {
+display:
+1: K = 0
+2: cnt = 0
+3: card = {0, 0, 0, 0, 0, 0, 0}
+line:
+23              int T; for (scanf("%d", &T); T--;) {
+display:
+1: K = 0
+2: cnt = 0
+3: card = {0, 0, 0, 0, 0, 0, 0}
+line:
+24                      scanf("%d", &M);
+display:
+1: K = 0
+2: cnt = 0
+3: card = {0, 0, 0, 0, 0, 0, 0}
+line:
+25                      scanf("%lld", &K);
+display:
+1: K = 0
+2: cnt = 0
+3: card = {0, 0, 0, 0, 0, 0, 0}
+line:
+27                      for (int i = 0; i < 7; i++) {
+display:
+1: K = 5
+2: cnt = 0
+3: card = {0, 0, 0, 0, 0, 0, 0}
+line:
+28                              card[i] = i;
+display:
+1: K = 5
+2: cnt = 0
+3: card = {0, 0, 0, 0, 0, 0, 0}
+line:
+27                      for (int i = 0; i < 7; i++) {
+display:
+1: K = 5
+2: cnt = 0
+3: card = {0, 0, 0, 0, 0, 0, 0}
+line:
+28                              card[i] = i;
+display:
+1: K = 5
+2: cnt = 0
+3: card = {0, 0, 0, 0, 0, 0, 0}
+line:
+27                      for (int i = 0; i < 7; i++) {
+display:
+1: K = 5
+2: cnt = 0
+3: card = {0, 1, 0, 0, 0, 0, 0}
+line:
+28                              card[i] = i;
+display:
+1: K = 5
+2: cnt = 0
+3: card = {0, 1, 0, 0, 0, 0, 0}
+line:
+27                      for (int i = 0; i < 7; i++) {
+display:
+1: K = 5
+2: cnt = 0
+3: card = {0, 1, 2, 0, 0, 0, 0}
+line:
+28                              card[i] = i;
+display:
+1: K = 5
+2: cnt = 0
+3: card = {0, 1, 2, 0, 0, 0, 0}
+line:
+27                      for (int i = 0; i < 7; i++) {
+display:
+1: K = 5
+2: cnt = 0
+3: card = {0, 1, 2, 3, 0, 0, 0}
+line:
+28                              card[i] = i;
+display:
+1: K = 5
+2: cnt = 0
+3: card = {0, 1, 2, 3, 0, 0, 0}
+line:
+27                      for (int i = 0; i < 7; i++) {
+display:
+1: K = 5
+2: cnt = 0
+3: card = {0, 1, 2, 3, 4, 0, 0}
+line:
+28                              card[i] = i;
+display:
+1: K = 5
+2: cnt = 0
+3: card = {0, 1, 2, 3, 4, 0, 0}
+line:
+27                      for (int i = 0; i < 7; i++) {
+display:
+1: K = 5
+2: cnt = 0
+3: card = {0, 1, 2, 3, 4, 5, 0}
+line:
+28                              card[i] = i;
+display:
+1: K = 5
+2: cnt = 0
+3: card = {0, 1, 2, 3, 4, 5, 0}
+line:
+27                      for (int i = 0; i < 7; i++) {
+display:
+1: K = 5
+2: cnt = 0
+3: card = {0, 1, 2, 3, 4, 5, 6}
+line:
+33                      for (int i = 0; i < M; i++) {
+display:
+1: K = 5
+2: cnt = 0
+3: card = {0, 1, 2, 3, 4, 5, 6}
+line:
+34                              scanf("%d %d", a + i, b + i);
+display:
+1: K = 5
+2: cnt = 0
+3: card = {0, 1, 2, 3, 4, 5, 6}
+line:
+33                      for (int i = 0; i < M; i++) {
+display:
+1: K = 5
+2: cnt = 0
+3: card = {0, 1, 2, 3, 4, 5, 6}
+line:
+34                              scanf("%d %d", a + i, b + i);
+display:
+1: K = 5
+2: cnt = 0
+3: card = {0, 1, 2, 3, 4, 5, 6}
+line:
+33                      for (int i = 0; i < M; i++) {
+display:
+1: K = 5
+2: cnt = 0
+3: card = {0, 1, 2, 3, 4, 5, 6}
+line:
+34                              scanf("%d %d", a + i, b + i);
+display:
+1: K = 5
+2: cnt = 0
+3: card = {0, 1, 2, 3, 4, 5, 6}
+line:
+33                      for (int i = 0; i < M; i++) {
+display:
+1: K = 5
+2: cnt = 0
+3: card = {0, 1, 2, 3, 4, 5, 6}
+line:
+37                      cnt = 0;
+display:
+1: K = 5
+2: cnt = 0
+3: card = {0, 1, 2, 3, 4, 5, 6}
+line:
+38                      while (cnt < K) {
+display:
+1: K = 5
+2: cnt = 0
+3: card = {0, 1, 2, 3, 4, 5, 6}
+line:
+39                              swap(card[a[cnt % M] - 1], card[b[cnt % M] - 1]);
+display:
+1: K = 5
+2: cnt = 0
+3: card = {0, 1, 2, 3, 4, 5, 6}
+line:
+10              int temp = a;
+display:
+1: K = 5
+2: cnt = 0
+3: card = {0, 1, 2, 3, 4, 5, 6}
+line:
+11              a = b;
+display:
+1: K = 5
+2: cnt = 0
+3: card = {0, 1, 2, 3, 4, 5, 6}
+line:
+12              b = temp;
+display:
+1: K = 5
+2: cnt = 0
+3: card = {1, 1, 2, 3, 4, 5, 6}
+line:
+13      }
+display:
+1: K = 5
+2: cnt = 0
+3: card = {1, 0, 2, 3, 4, 5, 6}
+line:
+40                              cnt++;
+display:
+1: K = 5
+2: cnt = 0
+3: card = {1, 0, 2, 3, 4, 5, 6}
+line:
+41                              if (isCycle() && cnt % M == 0) {
+display:
+1: K = 5
+2: cnt = 1
+3: card = {1, 0, 2, 3, 4, 5, 6}
+line:
+16              for (int i = 0; i < 7; i++) {
+display:
+1: K = 5
+2: cnt = 1
+3: card = {1, 0, 2, 3, 4, 5, 6}
+line:
+17                      if (card[i] != i) return false;
+display:
+1: K = 5
+2: cnt = 1
+3: card = {1, 0, 2, 3, 4, 5, 6}
+line:
+20      }
+display:
+1: K = 5
+2: cnt = 1
+3: card = {1, 0, 2, 3, 4, 5, 6}
+line:
+38                      while (cnt < K) {
+display:
+1: K = 5
+2: cnt = 1
+3: card = {1, 0, 2, 3, 4, 5, 6}
+line:
+39                              swap(card[a[cnt % M] - 1], card[b[cnt % M] - 1]);
+display:
+1: K = 5
+2: cnt = 1
+3: card = {1, 0, 2, 3, 4, 5, 6}
+line:
+10              int temp = a;
+display:
+1: K = 5
+2: cnt = 1
+3: card = {1, 0, 2, 3, 4, 5, 6}
+line:
+11              a = b;
+display:
+1: K = 5
+2: cnt = 1
+3: card = {1, 0, 2, 3, 4, 5, 6}
+line:
+12              b = temp;
+display:
+1: K = 5
+2: cnt = 1
+3: card = {2, 0, 2, 3, 4, 5, 6}
+line:
+13      }
+display:
+1: K = 5
+2: cnt = 1
+3: card = {2, 0, 1, 3, 4, 5, 6}
+line:
+40                              cnt++;
+display:
+1: K = 5
+2: cnt = 1
+3: card = {2, 0, 1, 3, 4, 5, 6}
+line:
+41                              if (isCycle() && cnt % M == 0) {
+display:
+1: K = 5
+2: cnt = 2
+3: card = {2, 0, 1, 3, 4, 5, 6}
+line:
+16              for (int i = 0; i < 7; i++) {
+display:
+1: K = 5
+2: cnt = 2
+3: card = {2, 0, 1, 3, 4, 5, 6}
+line:
+17                      if (card[i] != i) return false;
+display:
+1: K = 5
+2: cnt = 2
+3: card = {2, 0, 1, 3, 4, 5, 6}
+line:
+20      }
+display:
+1: K = 5
+2: cnt = 2
+3: card = {2, 0, 1, 3, 4, 5, 6}
+line:
+38                      while (cnt < K) {
+display:
+1: K = 5
+2: cnt = 2
+3: card = {2, 0, 1, 3, 4, 5, 6}
+line:
+39                              swap(card[a[cnt % M] - 1], card[b[cnt % M] - 1]);
+display:
+1: K = 5
+2: cnt = 2
+3: card = {2, 0, 1, 3, 4, 5, 6}
+line:
+10              int temp = a;
+display:
+1: K = 5
+2: cnt = 2
+3: card = {2, 0, 1, 3, 4, 5, 6}
+line:
+11              a = b;
+display:
+1: K = 5
+2: cnt = 2
+3: card = {2, 0, 1, 3, 4, 5, 6}
+line:
+12              b = temp;
+display:
+1: K = 5
+2: cnt = 2
+3: card = {2, 0, 4, 3, 4, 5, 6}
+line:
+13      }
+display:
+1: K = 5
+2: cnt = 2
+3: card = {2, 0, 4, 3, 1, 5, 6}
+line:
+40                              cnt++;
+display:
+1: K = 5
+2: cnt = 2
+3: card = {2, 0, 4, 3, 1, 5, 6}
+line:
+41                              if (isCycle() && cnt % M == 0) {
+display:
+1: K = 5
+2: cnt = 3
+3: card = {2, 0, 4, 3, 1, 5, 6}
+line:
+16              for (int i = 0; i < 7; i++) {
+display:
+1: K = 5
+2: cnt = 3
+3: card = {2, 0, 4, 3, 1, 5, 6}
+line:
+17                      if (card[i] != i) return false;
+display:
+1: K = 5
+2: cnt = 3
+3: card = {2, 0, 4, 3, 1, 5, 6}
+line:
+20      }
+display:
+1: K = 5
+2: cnt = 3
+3: card = {2, 0, 4, 3, 1, 5, 6}
+line:
+38                      while (cnt < K) {
+display:
+1: K = 5
+2: cnt = 3
+3: card = {2, 0, 4, 3, 1, 5, 6}
+line:
+39                              swap(card[a[cnt % M] - 1], card[b[cnt % M] - 1]);
+display:
+1: K = 5
+2: cnt = 3
+3: card = {2, 0, 4, 3, 1, 5, 6}
+line:
+10              int temp = a;
+display:
+1: K = 5
+2: cnt = 3
+3: card = {2, 0, 4, 3, 1, 5, 6}
+line:
+11              a = b;
+display:
+1: K = 5
+2: cnt = 3
+3: card = {2, 0, 4, 3, 1, 5, 6}
+line:
+12              b = temp;
+display:
+1: K = 5
+2: cnt = 3
+3: card = {0, 0, 4, 3, 1, 5, 6}
+line:
+13      }
+display:
+1: K = 5
+2: cnt = 3
+3: card = {0, 2, 4, 3, 1, 5, 6}
+line:
+40                              cnt++;
+display:
+1: K = 5
+2: cnt = 3
+3: card = {0, 2, 4, 3, 1, 5, 6}
+line:
+41                              if (isCycle() && cnt % M == 0) {
+display:
+1: K = 5
+2: cnt = 4
+3: card = {0, 2, 4, 3, 1, 5, 6}
+line:
+16              for (int i = 0; i < 7; i++) {
+display:
+1: K = 5
+2: cnt = 4
+3: card = {0, 2, 4, 3, 1, 5, 6}
+line:
+17                      if (card[i] != i) return false;
+display:
+1: K = 5
+2: cnt = 4
+3: card = {0, 2, 4, 3, 1, 5, 6}
+line:
+16              for (int i = 0; i < 7; i++) {
+display:
+1: K = 5
+2: cnt = 4
+3: card = {0, 2, 4, 3, 1, 5, 6}
+line:
+17                      if (card[i] != i) return false;
+display:
+1: K = 5
+2: cnt = 4
+3: card = {0, 2, 4, 3, 1, 5, 6}
+line:
+20      }
+display:
+1: K = 5
+2: cnt = 4
+3: card = {0, 2, 4, 3, 1, 5, 6}
+line:
+38                      while (cnt < K) {
+display:
+1: K = 5
+2: cnt = 4
+3: card = {0, 2, 4, 3, 1, 5, 6}
+line:
+39                              swap(card[a[cnt % M] - 1], card[b[cnt % M] - 1]);
+display:
+1: K = 5
+2: cnt = 4
+3: card = {0, 2, 4, 3, 1, 5, 6}
+line:
+10              int temp = a;
+display:
+1: K = 5
+2: cnt = 4
+3: card = {0, 2, 4, 3, 1, 5, 6}
+line:
+11              a = b;
+display:
+1: K = 5
+2: cnt = 4
+3: card = {0, 2, 4, 3, 1, 5, 6}
+line:
+12              b = temp;
+display:
+1: K = 5
+2: cnt = 4
+3: card = {4, 2, 4, 3, 1, 5, 6}
+line:
+13      }
+display:
+1: K = 5
+2: cnt = 4
+3: card = {4, 2, 0, 3, 1, 5, 6}
+line:
+40                              cnt++;
+display:
+1: K = 5
+2: cnt = 4
+3: card = {4, 2, 0, 3, 1, 5, 6}
+line:
+41                              if (isCycle() && cnt % M == 0) {
+display:
+1: K = 5
+2: cnt = 5
+3: card = {4, 2, 0, 3, 1, 5, 6}
+line:
+16              for (int i = 0; i < 7; i++) {
+display:
+1: K = 5
+2: cnt = 5
+3: card = {4, 2, 0, 3, 1, 5, 6}
+line:
+17                      if (card[i] != i) return false;
+display:
+1: K = 5
+2: cnt = 5
+3: card = {4, 2, 0, 3, 1, 5, 6}
+line:
+20      }
+display:
+1: K = 5
+2: cnt = 5
+3: card = {4, 2, 0, 3, 1, 5, 6}
+line:
+38                      while (cnt < K) {
+display:
+1: K = 5
+2: cnt = 5
+3: card = {4, 2, 0, 3, 1, 5, 6}
+line:
+47                      for (int i = 0; i < 7; i++) {
+display:
+1: K = 5
+2: cnt = 5
+3: card = {4, 2, 0, 3, 1, 5, 6}
+line:
+48                              printf("%d", card[i]);
+display:
+1: K = 5
+2: cnt = 5
+3: card = {4, 2, 0, 3, 1, 5, 6}
+line:
+47                      for (int i = 0; i < 7; i++) {
+display:
+1: K = 5
+2: cnt = 5
+3: card = {4, 2, 0, 3, 1, 5, 6}
+line:
+48                              printf("%d", card[i]);
+display:
+1: K = 5
+2: cnt = 5
+3: card = {4, 2, 0, 3, 1, 5, 6}
+line:
+47                      for (int i = 0; i < 7; i++) {
+display:
+1: K = 5
+2: cnt = 5
+3: card = {4, 2, 0, 3, 1, 5, 6}
+line:
+48                              printf("%d", card[i]);
+display:
+1: K = 5
+2: cnt = 5
+3: card = {4, 2, 0, 3, 1, 5, 6}
+line:
+47                      for (int i = 0; i < 7; i++) {
+display:
+1: K = 5
+2: cnt = 5
+3: card = {4, 2, 0, 3, 1, 5, 6}
+line:
+48                              printf("%d", card[i]);
+display:
+1: K = 5
+2: cnt = 5
+3: card = {4, 2, 0, 3, 1, 5, 6}
+line:
+47                      for (int i = 0; i < 7; i++) {
+display:
+1: K = 5
+2: cnt = 5
+3: card = {4, 2, 0, 3, 1, 5, 6}
+line:
+48                              printf("%d", card[i]);
+display:
+1: K = 5
+2: cnt = 5
+3: card = {4, 2, 0, 3, 1, 5, 6}
+line:
+47                      for (int i = 0; i < 7; i++) {
+display:
+1: K = 5
+2: cnt = 5
+3: card = {4, 2, 0, 3, 1, 5, 6}
+line:
+48                              printf("%d", card[i]);
+display:
+1: K = 5
+2: cnt = 5
+3: card = {4, 2, 0, 3, 1, 5, 6}
+line:
+47                      for (int i = 0; i < 7; i++) {
+display:
+1: K = 5
+2: cnt = 5
+3: card = {4, 2, 0, 3, 1, 5, 6}
+line:
+48                              printf("%d", card[i]);
+display:
+1: K = 5
+2: cnt = 5
+3: card = {4, 2, 0, 3, 1, 5, 6}
+line:
+47                      for (int i = 0; i < 7; i++) {
+display:
+1: K = 5
+2: cnt = 5
+3: card = {4, 2, 0, 3, 1, 5, 6}
+line:
+51                      printf("\n");
+display:
+1: K = 5
+2: cnt = 5
+3: card = {4, 2, 0, 3, 1, 5, 6}
+line:
+23              int T; for (scanf("%d", &T); T--;) {
+display:
+1: K = 5
+2: cnt = 5
+3: card = {4, 2, 0, 3, 1, 5, 6}
+line:
+54              return 0;
+display:
+1: K = 5
+2: cnt = 5
+3: card = {4, 2, 0, 3, 1, 5, 6}
+line:
+55      }
+display:
+1: K = 5
+2: cnt = 5
+3: card = {4, 2, 0, 3, 1, 5, 6}
