@@ -85,7 +85,20 @@ function gdbGetTypeEachTargets(next) {
 			if (output = getCompleteStreamData(buf)) {
 				buf = "";
 
-				targets[t] = output.split('=')[1].trim();
+				var type = output.split('=')[1].trim();
+				const arrsize = type.match(/[[0-9]+]/g);
+				type = type.replace(/[[0-9]+]/g, '').trim();
+
+				targets[t] = {
+					"type": type
+				};
+
+				if (arrsize) {
+					targets[t].array = [];
+					arrsize.forEach((size) => {
+						targets[t].array.push(Number(size.replace(/(\[|\])/g, '')));
+					});
+				}
 
 				t = argv.targets[i++];
 				if (!t) {
@@ -161,7 +174,7 @@ function gdbProcessing(next) {
 				}
 
 				if (mode == 1) {
-					if (output.indexOf('test.cpp') > -1) {
+					if (output.indexOf(argv.sourcefile) > -1) {
 						mode = 2;
 						gdb.stdin.write('list\n');
 					}
@@ -180,7 +193,7 @@ function gdbProcessing(next) {
 				}
 
 				if (mode == 3) {
-					status = parseStatusEachValues(output);
+					status = parseStatusEachValues(output, result.targets);
 					steps.push({ "line": line, "status": status });
 					mode = 0;
 					gdb.stdin.write('step\n');
@@ -217,22 +230,36 @@ function parseLineNumberFromLine(line) {
 }
 
 
-function parseStatusEachValues(status) {
+function parseStatusEachValues(status, targets) {
 	var ret = {};
 	status.split('\n').forEach((line) => {
 		var split = line.replace(/^[0-9]+:/g, '').split('=');
 		var key = split[0].trim();
-		var value = split[1].trim();
+		var value = convertStringToTargetData(split[1].trim(), targets[key]);
 		ret[key] = value;
 	});
 	return ret;
 }
 
 
-function getCompleteStreamData(buf) {
-	if (buf.match(/\n\(gdb\) $/g)) {
-		return buf.replace(/\n\(gdb\) $/g, '');
+function getCompleteStreamData(str) {
+	if (str.match(/\n\(gdb\) $/g)) {
+		return str.replace(/\n\(gdb\) $/g, '');
 	}
-
 	return false;
+}
+
+
+function convertStringToTargetData(str, target) {
+	if (target.array) {
+		str = str.replace('{', '[').replace('}', ']');
+		return JSON.parse(str);
+	}
+	else {
+		const type = target.type;
+		switch (type) {
+			case 'char': return str;
+			default: return Number(str);
+		}
+	}
 }
