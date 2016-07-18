@@ -167,10 +167,10 @@ function gdbProcessing(next) {
 
 			if (output = getCompleteStreamData(buf)) {			
 				buf = "";
-
 				if (output.indexOf("exited normally") > -1){
 					gdb.stdout.removeListener('data', dataListener);
 					gdb.stdin.write('Quit\n');
+					return ;
 				}
 				
 				if (mode == 0) {
