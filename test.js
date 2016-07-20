@@ -146,7 +146,12 @@ function gdbConfigurationAndRun(next) {
 			// TODO: use break point mode..
 		});
 
-		gdb.stdin.write(`run < ${argv.inputTxt}\n`);
+		if (argv.inputTxt) {
+			gdb.stdin.write(`run < ${argv.inputTxt}\n`);
+		}
+		else {
+			gdb.stdin.write('run\n');
+		}
 	}
 }
 
