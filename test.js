@@ -269,7 +269,7 @@ function getCompleteStreamData(str) {
 
 function convertStringToTargetData(str, target) {
 	if (target.array) {
-		str = str.replace('{', '[').replace('}', ']');
+		str = str.replace(/{/g, '[').replace(/}/g, ']');
 		return JSON.parse(str);
 	}
 	else {
