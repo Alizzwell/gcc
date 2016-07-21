@@ -21,7 +21,7 @@ app.post('/test', (req, res) => {
 	var inputFile = "temp.txt";
 	var options = "";
 
-	async.series([
+	async.waterfall([
 		function createUserCodeFile(next) {
 			fs.writeFile(sourceFile, userCode, (err) => {
 				next(err);
@@ -37,8 +37,8 @@ app.post('/test', (req, res) => {
 				return next();
 			}
 
+			options += `-i ${inputFile} `;
 			fs.writeFile(inputFile, userInput, (err) => {
-				options += `-i ${inputFile} `;
 				next(err);
 			});
 		},
@@ -59,15 +59,15 @@ app.post('/test', (req, res) => {
 			next();
 		},
 		function execute(next) {
-			exec(`node test.js ${sourceFile} ${binaryFile} ${options}`,
+			exec(`node test.js ${sourceFile} ${binaryFile} ${options}`, 
 			(err, stdout, stderr) => {
-				next(err, stdout);
+				next(err, JSON.parse(stdout));
 			});
 		}
-	], 
+	],
 	function finish(err, result) {
 		if (err) throw err;
-		res.json(JSON.parse(result[4]));
+		res.json(result);
 		res.end();
 	});
 });
