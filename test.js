@@ -127,7 +127,6 @@ function gdbConfigurationAndRun(next) {
 		var dataListener = (data) => {
 			buf += data;
 			if (buf.match(/Breakpoint 1, main \(\)(.|\n)*\(gdb\) $/g)) {
-				console.log(buf);
 				gdb.stdout.removeListener('data', dataListener);
 				next(gdb, argv, result);
 			}
@@ -144,7 +143,7 @@ function gdbConfigurationAndRun(next) {
 
 		// Configuration
 		argv.breaks.forEach((breakpoint) => {
-			// TODO: use break point mode..
+			gdb.stdin.write(`break ${breakpoint}\n`);
 		});
 
 		if (argv.inputTxt) {
@@ -170,9 +169,15 @@ function gdbProcessing(next) {
 
 		var dataListener = (data) => {
 			buf += data;
-			if (output = getCompleteStreamData(buf)) {
-				buf = "";
 
+			if (output = getCompleteStreamData(buf)) {			
+				buf = "";
+				if (output.indexOf("exited normally") > -1){
+					gdb.stdout.removeListener('data', dataListener);
+					gdb.stdin.write('Quit\n');
+					return ;
+				}
+				
 				if (mode == 0) {
 					mode = 1;
 					gdb.stdin.write('info line\n');
@@ -202,7 +207,13 @@ function gdbProcessing(next) {
 					status = parseStatusEachValues(output, result.targets);
 					steps.push({ "line": line, "status": status });
 					mode = 0;
-					gdb.stdin.write('step\n');
+					if(argv.breaks.length==0){
+						 gdb.stdin.write('step\n');
+					}
+					else{
+						gdb.stdin.write('continue\n');
+						//console.log(data.toString());
+					}
 					return;
 				}
 			}
