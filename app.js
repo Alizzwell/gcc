@@ -28,7 +28,7 @@ app.post('/test', (req, res) => {
 			});
 		},
 		function createBinaryFile(next) {
-			exec(`gcc -g ${sourceFile} -o ${binaryFile}`, (err) => {
+			exec(`g++ -g ${sourceFile} -o ${binaryFile}`, (err) => {
 				next(err);
 			});
 		},
@@ -59,7 +59,6 @@ app.post('/test', (req, res) => {
 			next();
 		},
 		function execute(next) {
-			console.log(`node test.js ${sourceFile} ${binaryFile} ${options}`);
 			exec(`node test.js ${sourceFile} ${binaryFile} ${options}`,
 			(err, stdout, stderr) => {
 				next(err, stdout);
@@ -74,3 +73,5 @@ app.post('/test', (req, res) => {
 });
 
 app.listen(3000);
+
+
