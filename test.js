@@ -207,12 +207,11 @@ function gdbProcessing(next) {
 					status = parseStatusEachValues(output, result.targets);
 					steps.push({ "line": line, "status": status });
 					mode = 0;
-					if(argv.breaks.length==0){
+					if(argv.breaks.length == 0){
 						 gdb.stdin.write('step\n');
 					}
 					else{
 						gdb.stdin.write('continue\n');
-						//console.log(data.toString());
 					}
 					return;
 				}
