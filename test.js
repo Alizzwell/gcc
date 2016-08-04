@@ -126,7 +126,7 @@ function gdbConfigurationAndRun(next) {
 
 		var dataListener = (data) => {
 			buf += data;
-			if (buf.match(/Breakpoint 1, main \(\)(.|\n)*\(gdb\) $/g)) {
+			if (buf.match(/Breakpoint 1, main \((.|\n)*\(gdb\) $/g)) {
 				gdb.stdout.removeListener('data', dataListener);
 				next(gdb, argv, result);
 			}
@@ -248,8 +248,8 @@ function parseLineNumberFromLine(line) {
 
 function parseStatusEachValues(status, targets) {
 	var ret = {};
-	status.split('\n').forEach((line) => {
-		var split = line.replace(/^[0-9]+:/g, '').split('=');
+	status.split(/[0-9]+: /g).slice(1).forEach((line) => {
+		var split = line.replace('\n', '').split('=');
 		var key = split[0].trim();
 		var value = convertStringToTargetData(split[1].trim(), targets[key]);
 		ret[key] = value;
