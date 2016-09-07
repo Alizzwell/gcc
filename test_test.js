@@ -1,7 +1,7 @@
+// you can excute like this 
 // node test.js <source-file> <binary-file> <drawAPI-file> <user-input-file>
 
 var fs = require('fs');
-
 const argv = (function parseProcessArgument() {
 	var sourcefile = process.argv[2];
 	var binaryfile = process.argv[3];
@@ -10,7 +10,11 @@ const argv = (function parseProcessArgument() {
 	var api_box = [];
 	var breaks = [];
 	
+	// if you have drawAPI in text file, please use this annotation.
 	//api_box = JSON.parse(fs.readFileSync('drawAPI.txt'));		
+	
+	
+	// apibox = input
 	api_box = {
 		  id: "",
 		  title: "",
@@ -46,35 +50,7 @@ const argv = (function parseProcessArgument() {
 			}				
 		  }
 	}
-
-				  /*
-			  "12": {
-				"chart1": [{
-				  name: "setData",
-				  params: {"index": "now->vertex", "value": 55}
-				}]
-			  },
-			  */
-			  /*
-			  "25": {
-				"chart1": [{
-				  name: "swap",
-				  params: {"index1": "j", "index2": "j + 1"}
-				}, {
-				  name: "clearHighlight"
-				}, {
-				  name: "highlight",
-				  params: {"index": "j"}
-				}, {
-				  name: "highlight",
-				  params: {"index": "j + 1"}
-				}],
-				"graph1": [{
-				  name: "makeNode",
-				  params: {"id": "v", "lavel": "\"kk\""}
-				}]
-			  }
-			  */
+	
 	return {
 		"sourcefile" : sourcefile,
 		"binaryfile" : binaryfile,
@@ -179,9 +155,10 @@ function gdbProcessing(next) {
 					gdb.stdin.write('info line\n');
 					return;
 				}
-
+				
 				if (mode == 1) {	
 					if (output.indexOf(argv.sourcefile) > -1 && output.indexOf("is out of range") <= -1) {					
+						// a part to get variable value from variable index 
 						ex_function_name = function_name;
 						function_name = getFunctionName(output);
 						line = parseLineNumberFromLine(output);
@@ -244,7 +221,7 @@ function gdbProcessing(next) {
 	}
 }
 
-
+// whole processes begin in here.
 gdbStart(argv, gdbPipeline, function done(gdb, argv, result) {
 	var join_api = new String();
 	result["steps"].forEach(function(lineInfo) {
@@ -259,7 +236,7 @@ gdbStart(argv, gdbPipeline, function done(gdb, argv, result) {
 					}
 					join_api = join_api.slice(0, join_api.length-1);
 					join_api += ')';
-					//if you want to add like makeNode(1), delete "//"
+					//if you want to add like makeNode(1), use this annotation.
 					//api["join_api"] = join_api;  
 					//delete api["name"];
 					//delete api["params"];
@@ -364,7 +341,7 @@ function pr(a){
 	console.log(a);
 }
 
-// draw_API의 변수들을 읽을 수 있을 때 변수들 Set해주는 함수.
+//set temporary attribute of api. (will be deleted after)
 function api_set(api, function_name, line){
 	var now_api;
 	now_api = api;
