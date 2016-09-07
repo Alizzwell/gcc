@@ -19,31 +19,25 @@ const argv = (function parseProcessArgument() {
 		  date: "",
 		  design: {
 			structures: {
-			  "chart1": "chart"
+			  "graph": "graph"
 			},
 			draws: {
-			  "19": {
-				"chart1": [{
-					name: "swap",
-				    params: {"v1": "j", "v2": "j+1"}
+			  "74": {
+				"graph": [{
+					name: "makeNode",
+				    params: {"v": "dest"}
 				}]
 			  },
-			  "46": {
-				"chart1": [{
-				  name: "clear",
-				  params: {}
-				}, {
-				  name: "initChart",
-				  params: {"val": "num"}
+			  "86": {
+				"graph": [{
+				  name: "makeNode",
+				  params: {"v": "src"}
 				}]
 			  },
-			  "49": {
-				"chart1": [{
-					name: "setData",
-				    params: {"v1": "i", "v2": "input[i]"}
-				}, {
-				  name: "highlight",
-				  params: {"val": "i"}
+			  "126": {
+				"graph": [{
+					name: "addEdge",
+				    params: {"src": "sv", "dst": "ev"}
 				}]
 			  }
 			}				
@@ -188,7 +182,7 @@ function gdbProcessing(next) {
 						ex_function_name = function_name;
 						function_name = getFunctionName(output);
 						line = parseLineNumberFromLine(output);
-						if(api_stack.length > 0){
+						if(api_stack.length > 0 && function_name == api_stack[api_stack.length-1]["function_name"]){
 							gdb.stdout.removeListener('data', dataListener);
 							print_drawAPI(api_stack.pop(), gdb, function_name, function(mod_api){
 								steps.push({"line" : line, "api":  mod_api});
@@ -277,7 +271,7 @@ function getFunctionName(str){
 //ex) set example
 //line : 33, api : {"chart1" : "setData(index1, 55)"} 
 //line : 33, api: { "chart1" : "setData(0, 55)" } 
-function print_drawAPI(api, gdb, function_namem, callback){
+function print_drawAPI(api, gdb, function_name, callback){
 	var vn_stack = [];
 	var value_names = [];
 	var value_indexes = [];
