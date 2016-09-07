@@ -32,6 +32,9 @@ const argv = (function parseProcessArgument() {
 				"graph": [{
 				  name: "makeNode",
 				  params: {"v": "src"}
+				},{
+				  name: "highlight",
+				  params:  {"v": "src"}
 				}]
 			  },
 			  "126": {
@@ -185,6 +188,8 @@ function gdbProcessing(next) {
 						if(api_stack.length > 0 && function_name == api_stack[api_stack.length-1]["function_name"]){
 							gdb.stdout.removeListener('data', dataListener);
 							print_drawAPI(api_stack.pop(), gdb, function_name, function(mod_api){
+								delete mod_api["function_name"];
+								delete mod_api["apis_line"];
 								steps.push({"line" : line, "api":  mod_api});
 								poped = true;
 								gdb.stdout.on('data', dataListener);	
@@ -241,6 +246,27 @@ function gdbProcessing(next) {
 
 
 gdbStart(argv, gdbPipeline, function done(gdb, argv, result) {
+	var join_api = new String();
+	result["steps"].forEach(function(lineInfo) {
+		if( lineInfo["api"] != null){
+			for(var structure_id in lineInfo["api"]){
+				lineInfo["api"][structure_id].forEach(function(api) {
+					join_api = api["name"];
+					join_api += '(';
+					for(var var_name in api["params"]){
+						join_api += api["params"][var_name];
+						join_api += ',';
+					}
+					join_api = join_api.slice(0, join_api.length-1);
+					join_api += ')';
+					//if you want to add like makeNode(1), delete "//"
+					//api["join_api"] = join_api;  
+					//delete api["name"];
+					//delete api["params"];
+				})
+			}
+		} 
+	})
 	console.log(JSON.stringify(result));
 	process.exit(0);
 });
@@ -320,7 +346,7 @@ function get_value (str, gdb, callback){
 			if(value[1] != undefined){
 				value = value[1].trim();
 			}
-			else {
+			else { // if error
 				value = "false";
 			}
 			gdb.stdout.removeListener('data', dataListener);
