@@ -211,7 +211,8 @@ function gdbProcessing(next) {
 				if(mode == 2){
 					s_line = String(line);
 					if(argv.api_box["design"]["draws"][s_line]){ // 스텝 전 api_stack 에 push	
-						api_stack.push(api_set(argv.api_box["design"]["draws"][s_line], function_name, line));
+						now_api = JSON.parse(JSON.stringify(argv.api_box["design"]["draws"][s_line]));
+						api_stack.push(api_set(now_api, function_name, line));
 					}	
 					if(poped == false){ steps.push({ "line": line, "api": null }); }
 					else { poped = false;}
